@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Ride</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    nav a {
+      color: #fff;
+      margin-right: 16px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px 40px;
+    }
+    .embed-wrapper {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+    iframe {
+      width: 100%;
+      min-height: 500px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Map.html">Map</a>
+      <a href="about.html">About</a>
+      <a href="reflections.html">Reflections</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Home Ride</h1>
+    <p>This narrative sketch follows a ride home, combining motion, scenery, and atmosphere in p5.js.</p>
+
+    <div class="embed-wrapper">
+      <iframe src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
+    </div>
+
+    <p>It experiments with pacing and visual storytelling to evoke a specific mood of traveling home.</p>
+  </main>
+
+</body>
+</html>
