@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maggie Zhao – Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+    }
+    nav a {
+      color: #fff;
+      margin-right: 16px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px 40px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .project-list {
+      list-style: none;
+      padding: 0;
+    }
+    .project-list li {
+      background: #fff;
+      margin-bottom: 12px;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .project-list a {
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+    }
+    .project-list a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="Map.html">Map</a>
+      <a href="about.html">About</a>
+      <a href="reflections.html">Reflections</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Maggie Zhao – Creative Technology Portfolio</h1>
+    <p>
+      Welcome to my portfolio site. Here I collect projects from my Creative Technology classes
+      and other experiments with code, interaction, and images.
+    </p>
+
+    <h2>Projects</h2>
+    <ul class="project-list">
+      <li>
+        <a href="Map.html">Map</a>
+        <p>
+          A p5.js sketch that explores mapping, space, and visual abstraction through code.
+        </p>
+      </li>
+
+      <!-- 以后如果你有第二个项目，可以在这里再加一个 li，例如：
+      <li>
+        <a href="AnotherProject.html">Another Project Title</a>
+        <p>1–2 sentence description of what this project does.</p>
+      </li>
+      -->
+    </ul>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Maggie Zhao
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+
+</body>
+</html>
+
