@@ -11,43 +11,135 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
-
-  <!-- p5 -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
 </head>
 
 <body>
+  <!-- p5 背景挂载点 -->
   <div id="bg"></div>
 
   <div class="content">
-    <!-- Hero 首屏：只显示名字 -->
+    <!-- Hero（开屏只有名字） -->
     <section class="hero">
       <h1 class="hero-name">Maggie Zhao</h1>
     </section>
 
-    <!-- Years selector（滚动后出现） -->
-    <section class="years-stage">
-      <div class="years-center">
-        <div class="years-list">
-          <button class="year-btn active" data-year="2025">2025</button>
-          <button class="year-btn" data-year="2024">2024</button>
-          <button class="year-btn" data-year="2023">2023</button>
-        </div>
+    <!-- Works（下滑后出现年份导航 + 预览区） -->
+    <section class="works" aria-label="Works by year">
 
-        <div class="years-meta">
-          <div class="years-meta-title">Selected: <span id="yearTitle">2025</span></div>
-          <div class="years-meta-hint" id="yearHint">Hover a year to preview.</div>
+      <!-- 年份条：横向 + sticky -->
+      <div class="yearbar">
+        <div class="yearbar-inner">
+          <button class="year-tab is-active" data-year="2025" type="button">2025</button>
+          <button class="year-tab" data-year="2024" type="button">2024</button>
+          <button class="year-tab" data-year="2023" type="button">2023</button>
         </div>
       </div>
-    </section>
 
-    <!-- Preview area -->
-    <main class="projects">
-      <div id="preview"></div>
-    </main>
+      <!-- 预览区域：横向排列（根据年份切换） -->
+      <div class="year-panels">
+
+        <!-- 2025 -->
+        <div class="year-panel is-active" data-panel="2025" role="region" aria-label="Works 2025">
+          <div class="preview-row">
+
+            <a class="preview-card" href="Map.html">
+              <div class="preview-title">Map</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
+            </a>
+
+            <a class="preview-card" href="FaceGenerator.html">
+              <div class="preview-title">Face Generator</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
+            </a>
+
+            <a class="preview-card" href="IceClock.html">
+              <div class="preview-title">Ice Clock</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
+            </a>
+
+            <a class="preview-card" href="ExquisiteCorpse.html">
+              <div class="preview-title">Exquisite Corpse</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
+            </a>
+
+            <a class="preview-card" href="OpticalIllusion.html">
+              <div class="preview-title">Optical Illusion</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
+            </a>
+
+            <a class="preview-card" href="DataPortrait.html">
+              <div class="preview-title">Data Portrait</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
+            </a>
+
+            <a class="preview-card" href="HomeRide.html">
+              <div class="preview-title">Home Ride</div>
+              <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 2024（未上传：占位） -->
+        <div class="year-panel" data-panel="2024" role="region" aria-label="Works 2024">
+          <div class="preview-row">
+            <div class="placeholder-card">
+              <div class="preview-title">2024</div>
+              <div class="placeholder-text">Not uploaded yet.</div>
+            </div>
+            <div class="placeholder-card">
+              <div class="preview-title">2024</div>
+              <div class="placeholder-text">Add works when ready.</div>
+            </div>
+            <div class="placeholder-card">
+              <div class="preview-title">2024</div>
+              <div class="placeholder-text">Coming soon.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2023（未上传：占位） -->
+        <div class="year-panel" data-panel="2023" role="region" aria-label="Works 2023">
+          <div class="preview-row">
+            <div class="placeholder-card">
+              <div class="preview-title">2023</div>
+              <div class="placeholder-text">Not uploaded yet.</div>
+            </div>
+            <div class="placeholder-card">
+              <div class="preview-title">2023</div>
+              <div class="placeholder-text">Add works when ready.</div>
+            </div>
+            <div class="placeholder-card">
+              <div class="preview-title">2023</div>
+              <div class="placeholder-text">Coming soon.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </div>
 
+  <!-- 年份 hover / focus 切换逻辑 -->
+  <script>
+    const tabs = document.querySelectorAll(".year-tab");
+    const panels = document.querySelectorAll(".year-panel");
+
+    function activate(year) {
+      tabs.forEach(t => t.classList.toggle("is-active", t.dataset.year === year));
+      panels.forEach(p => p.classList.toggle("is-active", p.dataset.panel === year));
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("mouseenter", () => activate(tab.dataset.year));
+      tab.addEventListener("focus", () => activate(tab.dataset.year));
+      tab.addEventListener("click", () => activate(tab.dataset.year)); // 触屏设备也能用
+    });
+  </script>
+
+  <!-- p5 背景 -->
   <script src="bg.js"></script>
-  <script src="years.js"></script>
 </body>
 </html>
+
