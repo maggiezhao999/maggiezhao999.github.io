@@ -29,85 +29,55 @@
       margin: 30px auto;
       padding: 0 20px 40px;
     }
-    h1, h2 {
+    h1 {
       margin-top: 0;
     }
 
-    /* 卡片网格布局 */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
+    .intro-text {
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
-    .project-card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .project-window {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
+    /* 每个项目预览块 */
+    .project-preview {
+      margin-bottom: 30px;
+      background: #ffffff;
+      border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
     }
 
-    .project-window:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    .project-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fafafa;
     }
 
-    .project-window-bar {
-      background: #f0f0f0;
-      padding: 6px 10px;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .dot.red { background: #ff5f57; }
-    .dot.yellow { background: #febc2e; }
-    .dot.green { background: #28c840; }
-
-    .project-window-body {
-      padding: 16px 16px 14px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-window-body h3 {
-      margin: 0 0 8px;
+    .project-header h2 {
+      margin: 0;
       font-size: 18px;
     }
 
-    .project-window-body p {
-      margin: 0 0 10px;
-      font-size: 14px;
-      line-height: 1.4;
+    .project-header a {
+      color: #222;
+      text-decoration: none;
     }
 
-    .project-link {
-      font-size: 13px;
-      font-weight: 500;
-      color: #555;
-    }
-
-    .project-card:hover .project-link {
+    .project-header a:hover {
       text-decoration: underline;
+    }
+
+    .frame-wrapper {
+      background: #000;
+      padding: 0;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 420px;
+      border: none;
+      display: block;
     }
 
     footer {
@@ -131,140 +101,81 @@
 
   <main>
     <h1>Maggie Zhao – Creative Technology Portfolio</h1>
-    <p>
-      Welcome to my portfolio site. Here I collect projects from my Creative Technology classes
-      and other experiments with code, interaction, and images.
+    <p class="intro-text">
+      A collection of my Creative Technology p5.js sketches. Scroll to preview each project.
+      Click a project title to open its dedicated page with more details.
     </p>
 
-    <h2>Projects</h2>
+    <!-- Map -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="Map.html">Map</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
+      </div>
+    </section>
 
-    <div class="project-grid">
-      <!-- Map -->
-      <a class="project-card" href="Map.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Map</h3>
-              <p>A p5.js sketch that explores mapping, space, and visual abstraction through code.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
+    <!-- Face Generator -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="FaceGenerator.html">Face Generator</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
+      </div>
+    </section>
 
-      <!-- Face Generator -->
-      <a class="project-card" href="FaceGenerator.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Face Generator</h3>
-              <p>A playful generator that assembles different facial features into unexpected characters.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
+    <!-- Ice Clock -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="IceClock.html">Ice Clock</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
+      </div>
+    </section>
 
-      <!-- Ice Clock -->
-      <a class="project-card" href="IceClock.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Ice Clock</h3>
-              <p>A time-based sketch that visualizes a melting, fragile sense of time like an icy clock.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
+    <!-- Exquisite Corpse -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="ExquisiteCorpse.html">Exquisite Corpse</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
+      </div>
+    </section>
 
-      <!-- Exquisite Corpse -->
-      <a class="project-card" href="ExquisiteCorpse.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Exquisite Corpse</h3>
-              <p>A digital exquisite corpse that combines different body parts into one surreal figure.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
+    <!-- Optical Illusion -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="OpticalIllusion.html">Optical Illusion</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
+      </div>
+    </section>
 
-      <!-- Optical Illusion -->
-      <a class="project-card" href="OpticalIllusion.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Optical Illusion</h3>
-              <p>An optical illusion that uses motion and repetition to trick the viewer’s perception.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
+    <!-- Data Portrait -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="DataPortrait.html">Data Portrait</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
+      </div>
+    </section>
 
-      <!-- Data Portrait -->
-      <a class="project-card" href="DataPortrait.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Data Portrait</h3>
-              <p>A data-driven self-portrait that turns personal information into abstract visual forms.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
+    <!-- Home Ride -->
+    <section class="project-preview">
+      <div class="project-header">
+        <h2><a href="HomeRide.html">Home Ride</a></h2>
+      </div>
+      <div class="frame-wrapper">
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
+      </div>
+    </section>
 
-      <!-- Home Ride -->
-      <a class="project-card" href="HomeRide.html">
-        <div class="project-window">
-          <div class="project-window-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="project-window-body">
-            <div>
-              <h3>Home Ride</h3>
-              <p>A narrative sketch that stages a ride home, combining motion, scenery, and emotion.</p>
-            </div>
-            <span class="project-link">Open project →</span>
-          </div>
-        </div>
-      </a>
-    </div>
   </main>
 
   <footer>
