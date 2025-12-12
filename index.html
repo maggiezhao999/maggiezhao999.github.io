@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- p5 -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
 </head>
 
@@ -19,15 +21,14 @@
   <div id="bg"></div>
 
   <div class="content">
-    <!-- Hero（开屏只有名字） -->
+    <!-- Hero：开屏只有名字（中下方） -->
     <section class="hero">
       <h1 class="hero-name">Maggie Zhao</h1>
     </section>
 
-    <!-- Works（下滑后出现年份导航 + 预览区） -->
+    <!-- Works：年份 + 预览 -->
     <section class="works" aria-label="Works by year">
-
-      <!-- 年份条：横向 + sticky -->
+      <!-- 年份条：无灰色带，居中 -->
       <div class="yearbar">
         <div class="yearbar-inner">
           <button class="year-tab is-active" data-year="2025" type="button">2025</button>
@@ -36,13 +37,19 @@
         </div>
       </div>
 
-      <!-- 预览区域：横向排列（根据年份切换） -->
       <div class="year-panels">
 
         <!-- 2025 -->
         <div class="year-panel is-active" data-panel="2025" role="region" aria-label="Works 2025">
           <div class="preview-row">
 
+            <!-- Androgyne PDF -->
+            <a class="preview-card" href="Androgyne.pdf" target="_blank" rel="noopener">
+              <div class="preview-title">Androgyne</div>
+              <iframe loading="lazy" src="Androgyne.pdf"></iframe>
+            </a>
+
+            <!-- p5 projects -->
             <a class="preview-card" href="Map.html">
               <div class="preview-title">Map</div>
               <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
@@ -81,39 +88,77 @@
           </div>
         </div>
 
-        <!-- 2024（未上传：占位） -->
+        <!-- 2024 -->
         <div class="year-panel" data-panel="2024" role="region" aria-label="Works 2024">
           <div class="preview-row">
-            <div class="placeholder-card">
-              <div class="preview-title">2024</div>
-              <div class="placeholder-text">Not uploaded yet.</div>
-            </div>
-            <div class="placeholder-card">
-              <div class="preview-title">2024</div>
-              <div class="placeholder-text">Add works when ready.</div>
-            </div>
-            <div class="placeholder-card">
-              <div class="preview-title">2024</div>
-              <div class="placeholder-text">Coming soon.</div>
-            </div>
+
+            <a class="preview-card" href="2024/desk.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">Desk</div>
+              <img class="preview-media" src="2024/desk.jpg" alt="Desk">
+            </a>
+
+            <a class="preview-card" href="2024/leaves.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">Leaves</div>
+              <img class="preview-media" src="2024/leaves.jpg" alt="Leaves">
+            </a>
+
+            <a class="preview-card" href="2024/mix.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">Mix</div>
+              <img class="preview-media" src="2024/mix.jpg" alt="Mix">
+            </a>
+
+            <a class="preview-card" href="2024/mix2.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">Mix 2</div>
+              <img class="preview-media" src="2024/mix2.jpg" alt="Mix 2">
+            </a>
+
+            <a class="preview-card" href="2024/mix3.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">Mix 3</div>
+              <img class="preview-media" src="2024/mix3.jpg" alt="Mix 3">
+            </a>
+
+            <a class="preview-card" href="2024/tree.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">Tree</div>
+              <img class="preview-media" src="2024/tree.jpg" alt="Tree">
+            </a>
+
+            <a class="preview-card" href="2024/wheel.jpeg" target="_blank" rel="noopener">
+              <div class="preview-title">Wheel</div>
+              <img class="preview-media" src="2024/wheel.jpeg" alt="Wheel">
+            </a>
+
           </div>
         </div>
 
-        <!-- 2023（未上传：占位） -->
+        <!-- 2023 -->
         <div class="year-panel" data-panel="2023" role="region" aria-label="Works 2023">
           <div class="preview-row">
-            <div class="placeholder-card">
-              <div class="preview-title">2023</div>
-              <div class="placeholder-text">Not uploaded yet.</div>
-            </div>
-            <div class="placeholder-card">
-              <div class="preview-title">2023</div>
-              <div class="placeholder-text">Add works when ready.</div>
-            </div>
-            <div class="placeholder-card">
-              <div class="preview-title">2023</div>
-              <div class="placeholder-text">Coming soon.</div>
-            </div>
+
+            <a class="preview-card" href="2023/trees.jpeg" target="_blank" rel="noopener">
+              <div class="preview-title">Trees</div>
+              <img class="preview-media" src="2023/trees.jpeg" alt="Trees">
+            </a>
+
+            <a class="preview-card" href="2023/冥河.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">冥河</div>
+              <img class="preview-media" src="2023/冥河.jpg" alt="冥河">
+            </a>
+
+            <a class="preview-card" href="2023/并蒂莲.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">并蒂莲</div>
+              <img class="preview-media" src="2023/并蒂莲.jpg" alt="并蒂莲">
+            </a>
+
+            <a class="preview-card" href="2023/石溪.jpeg" target="_blank" rel="noopener">
+              <div class="preview-title">石溪</div>
+              <img class="preview-media" src="2023/石溪.jpeg" alt="石溪">
+            </a>
+
+            <a class="preview-card" href="2023/缸.jpg" target="_blank" rel="noopener">
+              <div class="preview-title">缸</div>
+              <img class="preview-media" src="2023/缸.jpg" alt="缸">
+            </a>
+
           </div>
         </div>
 
@@ -121,7 +166,7 @@
     </section>
   </div>
 
-  <!-- 年份 hover / focus 切换逻辑 -->
+  <!-- 年份 hover/focus/click 切换 -->
   <script>
     const tabs = document.querySelectorAll(".year-tab");
     const panels = document.querySelectorAll(".year-panel");
@@ -134,12 +179,13 @@
     tabs.forEach(tab => {
       tab.addEventListener("mouseenter", () => activate(tab.dataset.year));
       tab.addEventListener("focus", () => activate(tab.dataset.year));
-      tab.addEventListener("click", () => activate(tab.dataset.year)); // 触屏设备也能用
+      tab.addEventListener("click", () => activate(tab.dataset.year)); // touch devices
     });
   </script>
 
-  <!-- p5 背景 -->
+  <!-- p5 背景脚本（你已有的 bg.js 保持不变） -->
   <script src="bg.js"></script>
 </body>
 </html>
+
 
