@@ -1,50 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maggie Zhao</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maggie Zhao – Portfolio</title>
 
-  <!-- Manrope -->
+  <!-- Manrope font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- p5 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
 </head>
 
 <body>
-  <!-- p5 背景挂载点 -->
-  <div id="p5-bg" aria-hidden="true"></div>
+  <!-- p5 背景 -->
+  <div id="bg"></div>
 
-  <!-- 首屏：只显示名字（叠在 p5 上） -->
-  <header class="hero">
-    <div class="hero-name">Maggie Zhao</div>
-  </header>
+  <div class="content">
 
-  <!-- 往下滚：Projects -->
-  <main class="content" id="projects">
-    <section class="work">
-      <h2 class="work-title">Projects</h2>
-
-      <div class="work-grid">
-        <!-- 把 href 改成你自己的页面路径/文件名 -->
-        <a class="work-item" href="map/index.html">Map</a>
-        <a class="work-item" href="face-generator/index.html">Face Generator</a>
-        <a class="work-item" href="ice-clock/index.html">Ice Clock</a>
-        <a class="work-item" href="exquisite-corpse/index.html">Exquisite Corpse</a>
-        <a class="work-item" href="optical-illusion/index.html">Optical Illusion</a>
-        <a class="work-item" href="data-portrait/index.html">Data Portrait</a>
-        <a class="work-item" href="home-ride/index.html">Home Ride</a>
-
-        <!-- 如果你还有 reflection 页 -->
-        <a class="work-item" href="reflection/index.html">Reflection</a>
-      </div>
+    <!-- 🔹 Hero 首屏 -->
+    <section class="hero">
+      <h1 class="hero-name">Maggie Zhao</h1>
     </section>
-  </main>
 
-  <!-- p5 -->
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
-  <script src="sketch.js"></script>
+    <!-- 🔹 Projects（滚动后出现） -->
+    <main class="projects">
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="Map.html">Map</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
+      </section>
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="FaceGenerator.html">Face Generator</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
+      </section>
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="IceClock.html">Ice Clock</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
+      </section>
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="ExquisiteCorpse.html">Exquisite Corpse</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
+      </section>
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="OpticalIllusion.html">Optical Illusion</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
+      </section>
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="DataPortrait.html">Data Portrait</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
+      </section>
+
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="HomeRide.html">Home Ride</a></h2>
+        </div>
+        <iframe src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- p5 background -->
+  <script src="bg.js"></script>
 </body>
 </html>
