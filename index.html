@@ -26,9 +26,24 @@
       <h1 class="hero-name">Maggie Zhao</h1>
     </section>
 
+    <!-- ✅ About：在名字和年份之间（居中） -->
+    <section class="about" aria-label="About">
+      <div class="about-inner">
+        <h2 class="about-title">About</h2>
+        <p class="about-text">
+          Maggie Zhao is a student majoring in Design and Technology and was majored in Photography at Parsons School of Design.
+          She is based in New York and Beijing.
+        </p>
+        <p class="about-text">
+          Context:<br>
+          Email: <a class="about-link" href="mailto:maggiejasmer@gmail.com">maggiejasmer@gmail.com</a>
+        </p>
+      </div>
+    </section>
+
     <!-- Works：年份 + 预览 -->
     <section class="works" aria-label="Works by year">
-      <!-- 年份条：无灰色带，居中 -->
+      <!-- 年份：居中，无灰色带 -->
       <div class="yearbar">
         <div class="yearbar-inner">
           <button class="year-tab is-active" data-year="2025" type="button">2025</button>
@@ -43,7 +58,6 @@
         <div class="year-panel is-active" data-panel="2025" role="region" aria-label="Works 2025">
           <div class="preview-row">
 
-            <!-- PDF：点击进入全屏 viewer（无 UI） -->
             <a class="preview-card is-2025"
                href="Androgyne.pdf"
                data-viewer="1"
@@ -52,7 +66,6 @@
               <iframe loading="lazy" src="Androgyne.pdf"></iframe>
             </a>
 
-            <!-- p5：点击进入全屏 viewer（无 UI） -->
             <a class="preview-card is-2025"
                href="Map.html"
                data-viewer="1"
@@ -190,7 +203,7 @@
     </section>
   </div>
 
-  <!-- 全屏 viewer（无 UI，点击空白/ESC 退出） -->
+  <!-- 全屏 viewer（无 UI） -->
   <div id="viewer" aria-hidden="true">
     <div id="viewer-backdrop"></div>
     <div id="viewer-stage" role="dialog" aria-modal="true" aria-label="Fullscreen viewer">
@@ -198,9 +211,9 @@
     </div>
   </div>
 
-  <!-- 年份切换 + 2023/24 自动流动 + 2025 全屏 viewer -->
+  <!-- 年份切换 + 自动流动 + viewer -->
   <script>
-    // ========== Year switching ==========
+    // Year switching
     const tabs = document.querySelectorAll(".year-tab");
     const panels = document.querySelectorAll(".year-panel");
 
@@ -215,7 +228,7 @@
       tab.addEventListener("click", () => activate(tab.dataset.year));
     });
 
-    // ========== Auto scroll (2023/2024) ==========
+    // Auto scroll (2023/2024)
     const autoRows = document.querySelectorAll(".preview-row.auto-scroll");
     const autoState = new Map();
 
@@ -233,31 +246,27 @@
 
     function tickAutoScroll(now) {
       autoRows.forEach(row => {
-        // 只在该年份 panel 可见时滚动
         const panel = row.closest(".year-panel");
         if (!panel || !panel.classList.contains("is-active")) return;
 
         const st = autoState.get(row);
         if (!st || st.paused) return;
 
-        const speed = parseFloat(row.dataset.speed || "0.25"); // px per ms-ish with dt
+        const speed = parseFloat(row.dataset.speed || "0.25");
         const dt = Math.min(40, now - st.last);
         st.last = now;
 
         row.scrollLeft += speed * dt;
 
-        // 到末尾轻柔回到开头
         const max = row.scrollWidth - row.clientWidth;
-        if (max > 0 && row.scrollLeft >= max - 2) {
-          row.scrollLeft = 0;
-        }
+        if (max > 0 && row.scrollLeft >= max - 2) row.scrollLeft = 0;
       });
 
       requestAnimationFrame(tickAutoScroll);
     }
     requestAnimationFrame(tickAutoScroll);
 
-    // ========== Fullscreen viewer for 2025 ==========
+    // Viewer (for 2025)
     const viewer = document.getElementById("viewer");
     const viewerBackdrop = document.getElementById("viewer-backdrop");
     const viewerFrame = document.getElementById("viewer-frame");
@@ -276,12 +285,11 @@
       document.body.classList.remove("no-scroll");
     }
 
-    // 点击卡片打开 viewer：允许 Cmd/Ctrl 点击走默认行为
     document.addEventListener("click", (e) => {
       const a = e.target.closest('a[data-viewer="1"]');
       if (!a) return;
 
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let browser open link
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
 
       const src = a.dataset.viewerSrc;
@@ -294,7 +302,7 @@
     });
   </script>
 
-  <!-- p5 背景脚本（你已有的 bg.js 保持不变） -->
+  <!-- p5 背景脚本 -->
   <script src="bg.js"></script>
 </body>
 </html>
