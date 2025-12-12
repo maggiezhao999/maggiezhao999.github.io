@@ -1,81 +1,100 @@
 :root{
-  --pad: 24px;
+  --glass: rgba(0,0,0,0.35);
+  --border: rgba(255,255,255,0.14);
+  --line: rgba(255,255,255,0.12);
+  --text: rgba(255,255,255,0.95);
+  --shadow: rgba(0,0,0,0.25);
 }
 
-*{ box-sizing: border-box; }
-html, body{ height: 100%; }
+* { box-sizing: border-box; }
 
-body{
+body {
   margin: 0;
-  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: #fff;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
   background: #000;
+  overflow-x: hidden;
 }
 
-/* p5 背景：固定在底层，全屏 */
-#p5-bg{
+/* p5 背景 */
+#bg {
   position: fixed;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
 }
 
-/* 首屏：只显示名字（叠在背景上） */
-.hero{
-  height: 100vh;
+/* 页面内容 */
+.content {
   position: relative;
   z-index: 1;
-  pointer-events: none; /* 防止名字挡住鼠标控制 p5 */
 }
 
-.hero-name{
-  position: absolute;
-  left: 50%;
-  bottom: 46px;
-  transform: translateX(-50%);
-  font-size: 44px;      /* ← 字号更大 */
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-shadow: 0 6px 20px rgba(0,0,0,0.35);
+/* 🔹 Hero 首屏 */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 下滑内容区：盖在 p5 上 */
-.content{
-  position: relative;
-  z-index: 2;
-  padding: 80px var(--pad) 140px;
-  background: rgba(0,0,0,0.55); /* 让文字清晰一点 */
-  backdrop-filter: blur(6px);
+.hero-name {
+  font-size: clamp(42px, 8vw, 96px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: white;
+  text-align: center;
+  user-select: none;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.45);
 }
 
-.work{
+/* 🔹 Projects 区 */
+.projects {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 20px 80px;
 }
 
-.work-title{
-  margin: 0 0 22px;
-  font-size: 18px;
-  font-weight: 600;
+.project-preview {
+  margin-bottom: 22px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 34px var(--shadow);
 }
 
-.work-grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+.project-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
 }
 
-.work-item{
-  display: block;
-  padding: 18px 16px;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 16px;
+.project-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.project-header a {
+  color: white;
   text-decoration: none;
-  color: #fff;
-  background: rgba(255,255,255,0.06);
 }
 
-.work-item:hover{
-  border-color: rgba(255,255,255,0.35);
-  background: rgba(255,255,255,0.10);
+.project-header a:hover {
+  text-decoration: underline;
 }
+
+iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  display: block;
+  background: #000;
+}
+
+@media (max-width: 600px) {
+  iframe { height: 360px; }
+}
+
 
