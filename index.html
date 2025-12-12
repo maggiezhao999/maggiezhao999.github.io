@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maggie Zhao – Portfolio</title>
 
-  <!-- Manrope font -->
+  <!-- Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,72 +17,37 @@
 </head>
 
 <body>
-  <!-- p5 背景 -->
   <div id="bg"></div>
 
   <div class="content">
-
-    <!-- 🔹 Hero 首屏 -->
+    <!-- Hero 首屏：只显示名字 -->
     <section class="hero">
       <h1 class="hero-name">Maggie Zhao</h1>
     </section>
 
-    <!-- 🔹 Projects（滚动后出现） -->
+    <!-- Years selector（滚动后出现） -->
+    <section class="years-stage">
+      <div class="years-center">
+        <div class="years-list">
+          <button class="year-btn active" data-year="2025">2025</button>
+          <button class="year-btn" data-year="2024">2024</button>
+          <button class="year-btn" data-year="2023">2023</button>
+        </div>
+
+        <div class="years-meta">
+          <div class="years-meta-title">Selected: <span id="yearTitle">2025</span></div>
+          <div class="years-meta-hint" id="yearHint">Hover a year to preview.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview area -->
     <main class="projects">
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="Map.html">Map</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="FaceGenerator.html">Face Generator</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="IceClock.html">Ice Clock</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="ExquisiteCorpse.html">Exquisite Corpse</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="OpticalIllusion.html">Optical Illusion</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="DataPortrait.html">Data Portrait</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="HomeRide.html">Home Ride</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
-      </section>
-
+      <div id="preview"></div>
     </main>
   </div>
 
-  <!-- p5 background -->
   <script src="bg.js"></script>
+  <script src="years.js"></script>
 </body>
 </html>
