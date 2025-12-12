@@ -1,190 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maggie Zhao – Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-    }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 20px;
-    }
-    nav a {
-      color: #fff;
-      margin-right: 16px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 0 20px 40px;
-    }
-    h1 {
-      margin-top: 0;
-    }
 
-    .intro-text {
-      margin-bottom: 24px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
+  <link rel="stylesheet" href="style.css" />
 
-    /* 每个项目预览块 */
-    .project-preview {
-      margin-bottom: 30px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      overflow: hidden;
-    }
-
-    .project-header {
-      padding: 12px 16px;
-      border-bottom: 1px solid #e5e5e5;
-      background: #fafafa;
-    }
-
-    .project-header h2 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .project-header a {
-      color: #222;
-      text-decoration: none;
-    }
-
-    .project-header a:hover {
-      text-decoration: underline;
-    }
-
-    .frame-wrapper {
-      background: #000;
-      padding: 0;
-    }
-
-    iframe {
-      width: 100%;
-      min-height: 420px;
-      border: none;
-      display: block;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #777;
-      padding: 20px;
-    }
-  </style>
+  <!-- p5.js 必须先加载 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
 </head>
+
 <body>
+  <!-- p5 背景挂载点 -->
+  <div id="bg"></div>
 
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="Map.html">Map</a>
-      <a href="about.html">About</a>
-      <a href="reflections.html">Reflections</a>
-    </nav>
-  </header>
+  <div class="content">
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="Map.html">Map</a>
+        <a href="about.html">About</a>
+        <a href="reflections.html">Reflections</a>
+      </nav>
+    </header>
 
-  <main>
-    <h1>Maggie Zhao – Creative Technology Portfolio</h1>
-    <p class="intro-text">
-      A collection of my Creative Technology p5.js sketches. Scroll to preview each project.
-      Click a project title to open its dedicated page with more details.
-    </p>
+    <main>
+      <h1>Maggie Zhao – Creative Technology Portfolio</h1>
 
-    <!-- Map -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="Map.html">Map</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <!-- 首页：只显示标题 + 预览，不显示描述 -->
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="Map.html">Map</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
-      </div>
-    </section>
+      </section>
 
-    <!-- Face Generator -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="FaceGenerator.html">Face Generator</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="FaceGenerator.html">Face Generator</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
-      </div>
-    </section>
+      </section>
 
-    <!-- Ice Clock -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="IceClock.html">Ice Clock</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="IceClock.html">Ice Clock</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
-      </div>
-    </section>
+      </section>
 
-    <!-- Exquisite Corpse -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="ExquisiteCorpse.html">Exquisite Corpse</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="ExquisiteCorpse.html">Exquisite Corpse</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
-      </div>
-    </section>
+      </section>
 
-    <!-- Optical Illusion -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="OpticalIllusion.html">Optical Illusion</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="OpticalIllusion.html">Optical Illusion</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
-      </div>
-    </section>
+      </section>
 
-    <!-- Data Portrait -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="DataPortrait.html">Data Portrait</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="DataPortrait.html">Data Portrait</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
-      </div>
-    </section>
+      </section>
 
-    <!-- Home Ride -->
-    <section class="project-preview">
-      <div class="project-header">
-        <h2><a href="HomeRide.html">Home Ride</a></h2>
-      </div>
-      <div class="frame-wrapper">
+      <section class="project-preview">
+        <div class="project-header">
+          <h2><a href="HomeRide.html">Home Ride</a></h2>
+        </div>
         <iframe src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
-      </div>
-    </section>
+      </section>
+    </main>
 
-  </main>
+    <footer>
+      © <span id="year"></span> Maggie Zhao
+    </footer>
+  </div>
 
-  <footer>
-    © <span id="year"></span> Maggie Zhao
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
+  <!-- 你的 p5 背景（放在最后，确保 #bg 已经存在） -->
+  <script src="bg.js"></script>
 </body>
 </html>
+
 
