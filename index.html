@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maggie Zhao</title>
 
-  <!-- Manrope font -->
+  <!-- Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,23 +14,37 @@
 </head>
 
 <body>
-  <!-- HERO: 进入主页只看到名字 -->
-  <header class="hero" aria-label="Home">
+  <!-- p5 背景挂载点 -->
+  <div id="p5-bg" aria-hidden="true"></div>
+
+  <!-- 首屏：只显示名字（叠在 p5 上） -->
+  <header class="hero">
     <div class="hero-name">Maggie Zhao</div>
   </header>
 
-  <!-- 往下滚才看到作品 -->
-  <main class="content" id="work" aria-label="Work">
+  <!-- 往下滚：Projects -->
+  <main class="content" id="projects">
     <section class="work">
-      <h2 class="work-title">Works</h2>
+      <h2 class="work-title">Projects</h2>
 
-      <!-- 下面是示例。你可以改成你的作品链接 -->
       <div class="work-grid">
-        <a class="work-item" href="project1.html">Project 1</a>
-        <a class="work-item" href="project2.html">Project 2</a>
-        <a class="work-item" href="project3.html">Project 3</a>
+        <!-- 把 href 改成你自己的页面路径/文件名 -->
+        <a class="work-item" href="map/index.html">Map</a>
+        <a class="work-item" href="face-generator/index.html">Face Generator</a>
+        <a class="work-item" href="ice-clock/index.html">Ice Clock</a>
+        <a class="work-item" href="exquisite-corpse/index.html">Exquisite Corpse</a>
+        <a class="work-item" href="optical-illusion/index.html">Optical Illusion</a>
+        <a class="work-item" href="data-portrait/index.html">Data Portrait</a>
+        <a class="work-item" href="home-ride/index.html">Home Ride</a>
+
+        <!-- 如果你还有 reflection 页 -->
+        <a class="work-item" href="reflection/index.html">Reflection</a>
       </div>
     </section>
   </main>
+
+  <!-- p5 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+  <script src="sketch.js"></script>
 </body>
 </html>
