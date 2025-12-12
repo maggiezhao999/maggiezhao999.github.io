@@ -1,115 +1,64 @@
 :root{
-  --glass: rgba(0,0,0,0.35);
-  --border: rgba(255,255,255,0.14);
-  --line: rgba(255,255,255,0.12);
-  --text: rgba(255,255,255,0.95);
-  --muted: rgba(255,255,255,0.80);
-  --shadow: rgba(0,0,0,0.25);
+  --pad: 24px;
 }
 
-* { box-sizing: border-box; }
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
 
-body {
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  color: var(--text);
-  overflow-x: hidden;
-  background: #000; /* p5 未加载时底色 */
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #fff;
+  color: #111;
 }
 
-/* p5 背景容器：铺满屏幕 & 不挡鼠标 */
-#bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* 页面内容在背景上层 */
-.content {
+/* 首屏：整屏空白 + 底部居中名字 */
+.hero{
+  height: 100vh;
   position: relative;
-  z-index: 1;
-  min-height: 100vh;
 }
 
-/* 顶部导航：玻璃效果 */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  padding: 16px 20px;
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
+.hero-name{
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
-nav a {
-  color: var(--text);
-  margin-right: 16px;
-  text-decoration: none;
-  font-size: 14px;
+/* 作品区：只有滚下去才看见 */
+.content{
+  padding: 80px var(--pad) 120px;
 }
-nav a:hover { text-decoration: underline; }
 
-main {
+.work{
   max-width: 1100px;
-  margin: 28px auto;
-  padding: 0 20px 60px;
+  margin: 0 auto;
 }
 
-h1 {
-  margin: 0 0 18px;
-  font-size: 28px;
-  letter-spacing: 0.2px;
-  text-shadow: 0 2px 14px rgba(0,0,0,0.45);
-}
-
-/* 项目预览块：竖向排列 */
-.project-preview {
-  margin-bottom: 22px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--border);
-  box-shadow: 0 14px 34px var(--shadow);
-}
-
-.project-header {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--line);
-}
-
-.project-header h2 {
-  margin: 0;
-  font-size: 16px;
+.work-title{
+  margin: 0 0 24px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.2px;
 }
 
-.project-header a {
-  color: var(--text);
-  text-decoration: none;
+.work-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
-.project-header a:hover { text-decoration: underline; }
 
-iframe {
-  width: 100%;
-  height: 420px;
-  border: none;
+.work-item{
   display: block;
-  background: #000;
+  padding: 18px 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
 }
 
-@media (max-width: 600px) {
-  iframe { height: 360px; }
-  h1 { font-size: 24px; }
-}
-
-footer {
-  text-align: center;
-  font-size: 12px;
-  padding: 24px 20px;
-  color: var(--muted);
-  text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+.work-item:hover{
+  border-color: #cfcfcf;
 }
