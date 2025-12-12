@@ -1,11 +1,9 @@
 :root{
-  --glass: rgba(0,0,0,0.35);
-  --glass2: rgba(0,0,0,0.25);
-  --border: rgba(255,255,255,0.14);
-  --line: rgba(255,255,255,0.12);
   --text: rgba(255,255,255,0.95);
   --muted: rgba(255,255,255,0.75);
-  --shadow: rgba(0,0,0,0.25);
+  --border: rgba(255,255,255,0.16);
+  --line: rgba(255,255,255,0.12);
+  --shadow: rgba(0,0,0,0.28);
 }
 
 * { box-sizing: border-box; }
@@ -45,7 +43,7 @@ body {
   font-size: clamp(22px, 3.2vw, 34px);
   font-weight: 400;
   letter-spacing: 0.08em;
-  color: white;
+  color: #fff;
   text-align: center;
   user-select: none;
   text-shadow: 0 4px 22px rgba(0,0,0,0.45);
@@ -56,15 +54,15 @@ body {
   padding-bottom: 80px;
 }
 
-/* 年份条 sticky 顶部 */
+/* 年份条：透明 + 居中（无灰色带） */
 .yearbar {
   position: sticky;
-  top: 0;
+  top: 18px;
   z-index: 5;
-  padding: 14px 0;
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
 }
 
 .yearbar-inner {
@@ -72,35 +70,38 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  gap: 14px;
+  justify-content: center;
+  gap: 18px;
   align-items: center;
 }
 
-/* 年份按钮 */
+/* 年份标签：极简 */
 .year-tab {
   appearance: none;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,0.70);
+  padding: 8px 10px;
   border-radius: 999px;
-  font-size: 14px;
-  letter-spacing: 0.08em;
+  font-size: 16px;
+  letter-spacing: 0.12em;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
 .year-tab:hover {
+  color: rgba(255,255,255,1);
   transform: translateY(-1px);
-  background: rgba(255,255,255,0.10);
 }
 
 .year-tab.is-active {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,1);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
 }
 
-/* 年份面板切换 */
+/* 年份面板 */
 .year-panels {
   max-width: 1100px;
   margin: 18px auto 0;
@@ -113,15 +114,14 @@ body {
 /* 横向预览条 */
 .preview-row {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   overflow-x: auto;
-  padding: 10px 2px 16px;
+  padding: 14px 2px 18px;
   scroll-snap-type: x mandatory;
 }
 
-.preview-row::-webkit-scrollbar {
-  height: 10px;
-}
+/* 滚动条（可选） */
+.preview-row::-webkit-scrollbar { height: 10px; }
 .preview-row::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.18);
   border-radius: 999px;
@@ -131,16 +131,16 @@ body {
   border-radius: 999px;
 }
 
-/* 作品卡片 */
+/* 预览卡片（大窗口） */
 .preview-card {
-  min-width: 320px;
-  max-width: 320px;
-  border-radius: 14px;
+  min-width: 520px;
+  max-width: 520px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: var(--glass2);
+  background: rgba(0,0,0,0.28);
   backdrop-filter: blur(14px);
-  box-shadow: 0 14px 34px var(--shadow);
+  box-shadow: 0 16px 40px var(--shadow);
   text-decoration: none;
   color: var(--text);
   scroll-snap-align: start;
@@ -149,52 +149,43 @@ body {
 
 .preview-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 46px rgba(0,0,0,0.35);
+  box-shadow: 0 22px 54px rgba(0,0,0,0.36);
 }
 
 /* 卡片标题 */
 .preview-title {
-  padding: 12px 14px;
-  font-size: 14px;
+  padding: 14px 16px;
+  font-size: 15px;
   font-weight: 500;
   border-bottom: 1px solid var(--line);
   letter-spacing: 0.02em;
 }
 
-/* iframe 预览尺寸（横向卡片里别太大） */
+/* iframe 预览（p5 / PDF） */
 .preview-card iframe {
   width: 100%;
-  height: 220px;
+  height: 320px;
   border: none;
   display: block;
   background: #000;
 }
 
-/* 占位卡片 */
-.placeholder-card {
-  min-width: 320px;
-  max-width: 320px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(0,0,0,0.30);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 14px 34px var(--shadow);
-  scroll-snap-align: start;
+/* 图片预览（2023/2024） */
+.preview-card img.preview-media {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  background: #000;
 }
 
-.placeholder-text {
-  padding: 18px 14px 22px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-/* 小屏优化 */
-@media (max-width: 520px) {
-  .preview-card, .placeholder-card {
-    min-width: 280px;
-    max-width: 280px;
+/* 小屏适配 */
+@media (max-width: 700px) {
+  .preview-card {
+    min-width: 320px;
+    max-width: 320px;
   }
-  .preview-card iframe { height: 200px; }
+  .preview-card iframe { height: 220px; }
+  .preview-card img.preview-media { height: 220px; }
 }
+
