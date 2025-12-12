@@ -1,8 +1,12 @@
+// Scroll-driven sea + color shift (no purple): blue<->red via WHITE
+// progress is based on page scroll so you can still scroll down to projects.
+
 let t = 0;
+let progress = 0; // 0..1
 
 function setup() {
   const c = createCanvas(windowWidth, windowHeight);
-  c.parent("bg"); // 关键：挂到 index.html 里的 <div id="bg"></div>
+  c.parent("bg");
   noStroke();
 }
 
@@ -13,26 +17,33 @@ function windowResized() {
 function draw() {
   t += 0.01;
 
-  const nx = (mouseX - width * 0.5) / (width * 0.5);
-  const ny = (mouseY - height * 0.5) / (height * 0.5);
-  const d = constrain(Math.sqrt(nx * nx + ny * ny), 0, 1);
-  const edge = smoothstep(0.12, 0.95, d);
+  // ✅ 用页面滚动控制 progress（0..1）
+  const heroH = window.innerHeight; // 首屏高度
+  const y = window.scrollY || 0;
+  progress = constrain(y / heroH, 0, 1);
 
-  const bgCenter = color(10, 55, 215);
-  const bgEdge   = color(235, 20, 45);
-  const waterCenter = color(255, 25, 55);
-  const waterEdge   = color(0, 125, 255);
+  // Sea rises to top as progress goes 0->1
+  const startHorizon = height * 0.62;
+  const horizon = lerp(startHorizon, 0, progress);
 
-  const bgCol = lerpColor(bgCenter, bgEdge, edge);
-  const waterCol = lerpColor(waterCenter, waterEdge, edge);
+  // Start: water red, bg blue
+  // End:   water blue, bg red
+  const blueBG = color(10, 55, 215);
+  const redBG  = color(235, 20, 45);
+  const redWater  = color(255, 25, 55);
+  const blueWater = color(0, 125, 255);
+
+  // avoid purple by going through WHITE
+  const bgCol = lerpViaWhite(blueBG, redBG, progress);
+  const waterCol = lerpViaWhite(redWater, blueWater, progress);
 
   background(bgCol);
 
-  const horizon = height * 0.62;
+  // small follow to keep waves alive
+  const followX = (mouseX - width * 0.5) * 0.12;
+  const followY = (mouseY - height * 0.5) * 0.05;
 
-  const followX = (mouseX - width * 0.5) * 0.14;
-  const followY = (mouseY - height * 0.5) * 0.06;
-
+  // layered waves extend to bottom
   const layers = 6;
   for (let i = 0; i < layers; i++) {
     const k = i / (layers - 1);
@@ -42,33 +53,30 @@ function draw() {
     const freq = lerp(0.010, 0.0042, k);
     const spd = lerp(0.85, 0.26, k); // ✅ speed -> spd
 
-    const fillCol = lerpColor(waterCol, color(0), lerp(0.06, 0.22, k));
-    fillCol.setAlpha(lerp(110, 245, k));
-    fill(fillCol);
+    // Depth tint (toward darker)
+    const c = lerpColor(waterCol, color(0), lerp(0.06, 0.22, k));
+    c.setAlpha(lerp(110, 245, k));
+    fill(c);
 
     beginShape();
     vertex(0, height);
-
     for (let x = 0; x <= width; x += 10) {
       const n =
         Math.sin((x + followX) * freq + t * spd) +
         0.55 * Math.sin((x - followX) * (freq * 1.9) + t * spd * 1.25) +
         0.25 * Math.sin((x + followX) * (freq * 3.1) - t * spd * 1.8);
 
-      const y = yBase + followY + n * amp;
-      vertex(x, y);
+      vertex(x, yBase + followY + n * amp);
     }
-
     vertex(width, height);
     endShape(CLOSE);
 
-    // 轮廓线
+    // contour line
     strokeWeight(2);
-    const lineCol = lerpColor(color(255), waterCol, 0.20);
+    const lineCol = lerpColor(color(255), waterCol, 0.22);
     lineCol.setAlpha(160);
     stroke(lineCol);
     noFill();
-
     beginShape();
     for (let x = 0; x <= width; x += 10) {
       const n =
@@ -76,16 +84,16 @@ function draw() {
         0.55 * Math.sin((x - followX) * (freq * 1.9) + t * spd * 1.25) +
         0.25 * Math.sin((x + followX) * (freq * 3.1) - t * spd * 1.8);
 
-      const y = yBase + followY + n * amp;
-      vertex(x, y);
+      vertex(x, yBase + followY + n * amp);
     }
     endShape();
-
     noStroke();
   }
 }
 
-function smoothstep(a, b, x) {
-  const tt = constrain((x - a) / (b - a), 0, 1);
-  return tt * tt * (3 - 2 * tt);
+function lerpViaWhite(c1, c2, amt) {
+  const w = color(255);
+  if (amt < 0.5) return lerpColor(c1, w, amt / 0.5);
+  return lerpColor(w, c2, (amt - 0.5) / 0.5);
 }
+
