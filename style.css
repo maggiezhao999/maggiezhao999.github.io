@@ -49,12 +49,12 @@ body {
   text-shadow: 0 4px 22px rgba(0,0,0,0.45);
 }
 
-/* Works section */
+/* Works */
 .works {
   padding-bottom: 80px;
 }
 
-/* 年份条：透明 + 居中（无灰色带） */
+/* 年份：居中，无灰色带 */
 .yearbar {
   position: sticky;
   top: 18px;
@@ -66,7 +66,7 @@ body {
 }
 
 .yearbar-inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -75,7 +75,6 @@ body {
   align-items: center;
 }
 
-/* 年份标签：极简 */
 .year-tab {
   appearance: none;
   border: 0;
@@ -101,9 +100,9 @@ body {
   text-decoration-thickness: 2px;
 }
 
-/* 年份面板 */
+/* Panels */
 .year-panels {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 18px auto 0;
   padding: 0 20px;
 }
@@ -120,39 +119,31 @@ body {
   scroll-snap-type: x mandatory;
 }
 
-/* 滚动条（可选） */
+/* 隐藏/弱化滚动条（可选） */
 .preview-row::-webkit-scrollbar { height: 10px; }
 .preview-row::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.16);
   border-radius: 999px;
 }
 .preview-row::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.05);
   border-radius: 999px;
 }
 
-/* 预览卡片（大窗口） */
+/* 卡片基础 */
 .preview-card {
-  min-width: 520px;
-  max-width: 520px;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
-  background: rgba(0,0,0,0.28);
+  background: rgba(0,0,0,0.22);
   backdrop-filter: blur(14px);
   box-shadow: 0 16px 40px var(--shadow);
   text-decoration: none;
   color: var(--text);
   scroll-snap-align: start;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.preview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 54px rgba(0,0,0,0.36);
-}
-
-/* 卡片标题 */
+/* 标题 */
 .preview-title {
   padding: 14px 16px;
   font-size: 15px;
@@ -161,31 +152,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* iframe 预览（p5 / PDF） */
-.preview-card iframe {
-  width: 100%;
-  height: 320px;
-  border: none;
-  display: block;
-  background: #000;
-}
+/* 默认：2023/2024（更克制） */
+.preview-card.is
 
-/* 图片预览（2023/2024） */
-.preview-card img.preview-media {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: block;
-  background: #000;
-}
-
-/* 小屏适配 */
-@media (max-width: 700px) {
-  .preview-card {
-    min-width: 320px;
-    max-width: 320px;
-  }
-  .preview-card iframe { height: 220px; }
-  .preview-card img.preview-media { height: 220px; }
-}
 
