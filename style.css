@@ -8,29 +8,43 @@ html, body{ height: 100%; }
 body{
   margin: 0;
   font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: #fff;
-  color: #111;
+  color: #fff;
+  background: #000;
 }
 
-/* 首屏：整屏空白 + 底部居中名字 */
+/* p5 背景：固定在底层，全屏 */
+#p5-bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* 首屏：只显示名字（叠在背景上） */
 .hero{
   height: 100vh;
   position: relative;
+  z-index: 1;
+  pointer-events: none; /* 防止名字挡住鼠标控制 p5 */
 }
 
 .hero-name{
   position: absolute;
   left: 50%;
-  bottom: 36px;
+  bottom: 46px;
   transform: translateX(-50%);
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 44px;      /* ← 字号更大 */
+  font-weight: 500;
   letter-spacing: 0.02em;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.35);
 }
 
-/* 作品区：只有滚下去才看见 */
+/* 下滑内容区：盖在 p5 上 */
 .content{
-  padding: 80px var(--pad) 120px;
+  position: relative;
+  z-index: 2;
+  padding: 80px var(--pad) 140px;
+  background: rgba(0,0,0,0.55); /* 让文字清晰一点 */
+  backdrop-filter: blur(6px);
 }
 
 .work{
@@ -39,7 +53,7 @@ body{
 }
 
 .work-title{
-  margin: 0 0 24px;
+  margin: 0 0 22px;
   font-size: 18px;
   font-weight: 600;
 }
@@ -53,12 +67,15 @@ body{
 .work-item{
   display: block;
   padding: 18px 16px;
-  border: 1px solid #e6e6e6;
-  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 16px;
   text-decoration: none;
-  color: inherit;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
 }
 
 .work-item:hover{
-  border-color: #cfcfcf;
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.10);
 }
+
