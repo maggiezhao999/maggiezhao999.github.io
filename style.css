@@ -1,62 +1,200 @@
-/* ===== Year selector stage ===== */
-.years-stage{
-  min-height: 70vh;
+:root{
+  --glass: rgba(0,0,0,0.35);
+  --glass2: rgba(0,0,0,0.25);
+  --border: rgba(255,255,255,0.14);
+  --line: rgba(255,255,255,0.12);
+  --text: rgba(255,255,255,0.95);
+  --muted: rgba(255,255,255,0.75);
+  --shadow: rgba(0,0,0,0.25);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* p5 背景 */
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero：名字在屏幕中下方 */
+.hero {
+  height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  padding: 40px 20px 30px;
+  padding-bottom: 56px;
 }
 
-.years-center{
-  width: min(900px, 100%);
-  text-align: center;
-}
-
-.years-list{
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 14px;
-}
-
-.year-btn{
-  font-family: inherit;
-  font-size: clamp(26px, 4.5vw, 56px);
-  font-weight: 500;
+.hero-name {
+  margin: 0;
+  font-size: clamp(22px, 3.2vw, 34px);
+  font-weight: 400;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.78);
-  background: transparent;
-  border: none;
-  padding: 6px 10px;
-  cursor: default;
-  text-shadow: 0 4px 22px rgba(0,0,0,0.35);
-  transition: transform 140ms ease, color 140ms ease;
+  color: white;
+  text-align: center;
+  user-select: none;
+  text-shadow: 0 4px 22px rgba(0,0,0,0.45);
 }
 
-.year-btn:hover{
-  color: rgba(255,255,255,0.98);
-  transform: translateY(-2px);
+/* Works section */
+.works {
+  padding-bottom: 80px;
 }
 
-.year-btn.active{
-  color: rgba(255,255,255,0.98);
+/* 年份条 sticky 顶部 */
+.yearbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 14px 0;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
 }
 
-.years-meta{
-  margin-top: 6px;
-  color: rgba(255,255,255,0.85);
-  font-size: 13px;
+.yearbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* 年份按钮 */
+.year-tab {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.year-tab:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.10);
+}
+
+.year-tab.is-active {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* 年份面板切换 */
+.year-panels {
+  max-width: 1100px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+}
+
+.year-panel { display: none; }
+.year-panel.is-active { display: block; }
+
+/* 横向预览条 */
+.preview-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 2px 16px;
+  scroll-snap-type: x mandatory;
+}
+
+.preview-row::-webkit-scrollbar {
+  height: 10px;
+}
+.preview-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+.preview-row::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+}
+
+/* 作品卡片 */
+.preview-card {
+  min-width: 320px;
+  max-width: 320px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--glass2);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 34px var(--shadow);
+  text-decoration: none;
+  color: var(--text);
+  scroll-snap-align: start;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 46px rgba(0,0,0,0.35);
+}
+
+/* 卡片标题 */
+.preview-title {
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--line);
   letter-spacing: 0.02em;
-  text-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
 
-.years-meta-title{
-  margin-bottom: 4px;
+/* iframe 预览尺寸（横向卡片里别太大） */
+.preview-card iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+  display: block;
+  background: #000;
 }
 
-.years-meta-hint{
-  opacity: 0.9;
+/* 占位卡片 */
+.placeholder-card {
+  min-width: 320px;
+  max-width: 320px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.30);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 34px var(--shadow);
+  scroll-snap-align: start;
 }
 
+.placeholder-text {
+  padding: 18px 14px 22px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
 
+/* 小屏优化 */
+@media (max-width: 520px) {
+  .preview-card, .placeholder-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+  .preview-card iframe { height: 200px; }
+}
