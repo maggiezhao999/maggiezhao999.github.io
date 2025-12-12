@@ -25,32 +25,91 @@
       text-decoration: underline;
     }
     main {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 30px auto;
       padding: 0 20px 40px;
     }
     h1, h2 {
       margin-top: 0;
     }
-    .project-list {
-      list-style: none;
-      padding: 0;
+
+    /* 卡片网格布局 */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
     }
-    .project-list li {
-      background: #fff;
-      margin-bottom: 12px;
-      padding: 16px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-    .project-list a {
-      font-weight: bold;
-      color: #333;
+
+    .project-card {
+      display: block;
       text-decoration: none;
+      color: inherit;
     }
-    .project-list a:hover {
+
+    .project-window {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-window:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .project-window-bar {
+      background: #f0f0f0;
+      padding: 6px 10px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.red { background: #ff5f57; }
+    .dot.yellow { background: #febc2e; }
+    .dot.green { background: #28c840; }
+
+    .project-window-body {
+      padding: 16px 16px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-window-body h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .project-window-body p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .project-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .project-card:hover .project-link {
       text-decoration: underline;
     }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -78,36 +137,134 @@
     </p>
 
     <h2>Projects</h2>
-    <ul class="project-list">
-      <li>
-        <a href="Map.html">Map</a>
-        <p>A p5.js sketch that explores mapping, space, and visual abstraction through code.</p>
-      </li>
-      <li>
-        <a href="FaceGenerator.html">Face Generator</a>
-        <p>A playful face generator that assembles different features to create unexpected characters.</p>
-      </li>
-      <li>
-        <a href="IceClock.html">Ice Clock</a>
-        <p>A time-based sketch that visualizes a melting or frozen sense of time like an icy clock.</p>
-      </li>
-      <li>
-        <a href="ExquisiteCorpse.html">Exquisite Corpse</a>
-        <p>A digital version of the exquisite corpse drawing game, combining surreal body parts into one figure.</p>
-      </li>
-      <li>
-        <a href="OpticalIllusion.html">Optical Illusion</a>
-        <p>An optical illusion that uses movement and pattern to trick the viewer’s perception.</p>
-      </li>
-      <li>
-        <a href="DataPortrait.html">Data Portrait</a>
-        <p>A data-driven self-portrait that turns personal information into abstract visual forms.</p>
-      </li>
-      <li>
-        <a href="HomeRide.html">Home Ride</a>
-        <p>A narrative sketch that stages a ride home, combining motion, scenery, and emotion.</p>
-      </li>
-    </ul>
+
+    <div class="project-grid">
+      <!-- Map -->
+      <a class="project-card" href="Map.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Map</h3>
+              <p>A p5.js sketch that explores mapping, space, and visual abstraction through code.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Face Generator -->
+      <a class="project-card" href="FaceGenerator.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Face Generator</h3>
+              <p>A playful generator that assembles different facial features into unexpected characters.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Ice Clock -->
+      <a class="project-card" href="IceClock.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Ice Clock</h3>
+              <p>A time-based sketch that visualizes a melting, fragile sense of time like an icy clock.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Exquisite Corpse -->
+      <a class="project-card" href="ExquisiteCorpse.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Exquisite Corpse</h3>
+              <p>A digital exquisite corpse that combines different body parts into one surreal figure.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Optical Illusion -->
+      <a class="project-card" href="OpticalIllusion.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Optical Illusion</h3>
+              <p>An optical illusion that uses motion and repetition to trick the viewer’s perception.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Data Portrait -->
+      <a class="project-card" href="DataPortrait.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Data Portrait</h3>
+              <p>A data-driven self-portrait that turns personal information into abstract visual forms.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Home Ride -->
+      <a class="project-card" href="HomeRide.html">
+        <div class="project-window">
+          <div class="project-window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="project-window-body">
+            <div>
+              <h3>Home Ride</h3>
+              <p>A narrative sketch that stages a ride home, combining motion, scenery, and emotion.</p>
+            </div>
+            <span class="project-link">Open project →</span>
+          </div>
+        </div>
+      </a>
+    </div>
   </main>
 
   <footer>
@@ -119,5 +276,4 @@
 
 </body>
 </html>
-
 
