@@ -1,96 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maggie Zhao – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maggie Zhao</title>
+
+  <!-- Manrope font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
-
-  <!-- p5.js 必须先加载 -->
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
 </head>
 
 <body>
-  <!-- p5 背景挂载点 -->
-  <div id="bg"></div>
+  <!-- HERO: 进入主页只看到名字 -->
+  <header class="hero" aria-label="Home">
+    <div class="hero-name">Maggie Zhao</div>
+  </header>
 
-  <div class="content">
-    <header>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="Map.html">Map</a>
-        <a href="about.html">About</a>
-        <a href="reflections.html">Reflections</a>
-      </nav>
-    </header>
+  <!-- 往下滚才看到作品 -->
+  <main class="content" id="work" aria-label="Work">
+    <section class="work">
+      <h2 class="work-title">Works</h2>
 
-    <main>
-      <h1>Maggie Zhao – Creative Technology Portfolio</h1>
-
-      <!-- 首页：只显示标题 + 预览，不显示描述 -->
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="Map.html">Map</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="FaceGenerator.html">Face Generator</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="IceClock.html">Ice Clock</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="ExquisiteCorpse.html">Exquisite Corpse</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="OpticalIllusion.html">Optical Illusion</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="DataPortrait.html">Data Portrait</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
-      </section>
-
-      <section class="project-preview">
-        <div class="project-header">
-          <h2><a href="HomeRide.html">Home Ride</a></h2>
-        </div>
-        <iframe src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
-      </section>
-    </main>
-
-    <footer>
-      © <span id="year"></span> Maggie Zhao
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
-  <!-- 你的 p5 背景（放在最后，确保 #bg 已经存在） -->
-  <script src="bg.js"></script>
+      <!-- 下面是示例。你可以改成你的作品链接 -->
+      <div class="work-grid">
+        <a class="work-item" href="project1.html">Project 1</a>
+        <a class="work-item" href="project2.html">Project 2</a>
+        <a class="work-item" href="project3.html">Project 3</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
-
-
