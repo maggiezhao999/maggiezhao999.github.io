@@ -293,4 +293,91 @@ body {
     max-width: 82vw;
   }
 }
+/* ===== Year page (Grid) ===== */
+
+.year-page {
+  min-height: 100vh;
+  padding: 36px 18px 80px;
+}
+
+.year-top {
+  max-width: 1600px;
+  margin: 0 auto 18px;
+  padding: 0 6px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.year-title {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.year-back {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.22);
+  padding-bottom: 2px;
+}
+.year-back:hover { border-bottom-color: rgba(255,255,255,0.5); }
+
+.grid {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 6px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Grid item */
+.tile {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.22);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.24);
+  text-decoration: none;
+  color: rgba(255,255,255,0.95);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 54px rgba(0,0,0,0.36);
+}
+
+.tile-title {
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.tile iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  display: block;
+  background: #000;
+}
+
+.tile img {
+  width: 100%;
+  height: auto; /* ✅ 图片按原比例 */
+  display: block;
+  background: #000;
+}
+
+/* 2025 更大一点 */
+.grid.grid-2025 .tile iframe {
+  height: 520px;
+}
+
 
