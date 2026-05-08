@@ -4,43 +4,50 @@ const PROJECTS = {
       title: "Experimental Camera",
       page: "interactive/ExperimentalCamera.html",
       preview: "interactive/ExperimentalCamera.html",
-      type: "iframe"
+      type: "iframe",
+      size: "large"
     },
     {
       title: "Digital Divination",
       page: "interactive/Digital Divination.html",
       preview: "interactive/Digital Divination.html",
-      type: "iframe"
+      type: "iframe",
+      size: "large"
     },
     {
       title: "Joyride",
       page: "interactive/Joyride.html",
       preview: "interactive/Joyride.html",
-      type: "iframe"
+      type: "iframe",
+      size: "medium"
     },
     {
       title: "Data Portrait",
       page: "interactive/DataPortrait.html",
       preview: "interactive/DataPortrait.html",
-      type: "iframe"
+      type: "iframe",
+      size: "medium"
     },
     {
       title: "Face Generator",
       page: "interactive/FaceGenerator.html",
       preview: "interactive/FaceGenerator.html",
-      type: "iframe"
+      type: "iframe",
+      size: "medium"
     },
     {
       title: "Ice Clock",
       page: "interactive/IceClock.html",
       preview: "interactive/IceClock.html",
-      type: "iframe"
+      type: "iframe",
+      size: "small"
     },
     {
       title: "Optical Illusion",
       page: "interactive/OpticalIllusion.html",
       preview: "interactive/OpticalIllusion.html",
-      type: "iframe"
+      type: "iframe",
+      size: "medium"
     }
   ],
 
@@ -49,7 +56,8 @@ const PROJECTS = {
       title: "Androgyne",
       page: "Collage and images/Androgyne.pdf",
       preview: "Collage and images/Androgyne.pdf",
-      type: "iframe"
+      type: "iframe",
+      size: "large"
     },
     {
       title: "Desk",
@@ -146,8 +154,7 @@ const PROJECTS = {
     }
   ],
 
-  videos: [],
-
+  videos: []
 };
 
 const tabs = document.querySelectorAll(".category-tab");
@@ -165,33 +172,33 @@ function renderCategory(category) {
 
   items.forEach(project => {
     const card = document.createElement("a");
-    card.className = project.type === "image"
-      ? "preview-card is-img"
-      : "preview-card is-interactive";
+    card.className = `work-card ${project.type} ${project.size || ""}`;
 
     card.href = project.page;
     card.dataset.viewer = "1";
     card.dataset.viewerSrc = project.preview;
 
-    const title = document.createElement("div");
-    title.className = "preview-title";
-    title.textContent = project.title;
-
-    card.appendChild(title);
+    const media = document.createElement("div");
+    media.className = "work-media";
 
     if (project.type === "image") {
       const img = document.createElement("img");
-      img.className = "preview-media";
       img.src = project.preview;
       img.alt = project.title;
-      card.appendChild(img);
+      media.appendChild(img);
     } else {
       const iframe = document.createElement("iframe");
       iframe.src = project.preview;
       iframe.loading = "lazy";
-      card.appendChild(iframe);
+      media.appendChild(iframe);
     }
 
+    const title = document.createElement("div");
+    title.className = "work-title";
+    title.textContent = project.title;
+
+    card.appendChild(media);
+    card.appendChild(title);
     preview.appendChild(card);
   });
 }
