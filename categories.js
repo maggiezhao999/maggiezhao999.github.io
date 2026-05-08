@@ -8,6 +8,12 @@ const PROJECTS = {
       size: "large"
     },
     {
+    title: "Heartbeat Walkie Talkie",
+    page: "interactive/Heartbeat_WalkieTalkie.png",
+    preview: "interactive/Heartbeat_WalkieTalkie.png",
+    type: "image"
+    },
+    {
       title: "Digital Divination",
       page: "interactive/Digital Divination.html",
       preview: "interactive/Digital Divination.html",
