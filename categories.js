@@ -148,50 +148,6 @@ const PROJECTS = {
 
   videos: [],
 
-  p5js: [
-    {
-      title: "Experimental Camera",
-      page: "interactive/ExperimentalCamera.html",
-      preview: "interactive/ExperimentalCamera.html",
-      type: "iframe"
-    },
-    {
-      title: "Digital Divination",
-      page: "interactive/Digital Divination.html",
-      preview: "interactive/Digital Divination.html",
-      type: "iframe"
-    },
-    {
-      title: "Joyride",
-      page: "interactive/Joyride.html",
-      preview: "interactive/Joyride.html",
-      type: "iframe"
-    },
-    {
-      title: "Data Portrait",
-      page: "interactive/DataPortrait.html",
-      preview: "interactive/DataPortrait.html",
-      type: "iframe"
-    },
-    {
-      title: "Face Generator",
-      page: "interactive/FaceGenerator.html",
-      preview: "interactive/FaceGenerator.html",
-      type: "iframe"
-    },
-    {
-      title: "Ice Clock",
-      page: "interactive/IceClock.html",
-      preview: "interactive/IceClock.html",
-      type: "iframe"
-    },
-    {
-      title: "Optical Illusion",
-      page: "interactive/OpticalIllusion.html",
-      preview: "interactive/OpticalIllusion.html",
-      type: "iframe"
-    }
-  ]
 };
 
 const tabs = document.querySelectorAll(".category-tab");
