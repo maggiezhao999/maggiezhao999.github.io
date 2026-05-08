@@ -5,220 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maggie Zhao – Portfolio</title>
 
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- p5 -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
 </head>
 
 <body>
+  <div id="bg"></div>
 
-<div id="bg"></div>
+  <div class="content">
+    <section class="hero">
+      <h1 class="hero-name">Maggie Zhao</h1>
+    </section>
 
-<div class="content">
+    <section class="about">
+      <div class="about-inner">
+        <h2 class="about-title">About</h2>
+        <p class="about-text">
+          Maggie Zhao is a student majoring in Design and Technology and was majored in Photography at Parsons School of Design.
+          She is based in New York and Beijing.
+        </p>
+        <p class="about-text">
+          Contact:<br>
+          <a class="about-link" href="mailto:maggiejasmer@gmail.com">maggiejasmer@gmail.com</a>
+        </p>
+      </div>
+    </section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1 class="hero-name">Maggie Zhao</h1>
-  </section>
+    <section class="works">
+      <div class="categorybar">
+        <div class="categorybar-inner">
+          <button class="category-tab is-active" data-category="interactive">Interactive</button>
+          <button class="category-tab" data-category="collage">Collage and images</button>
+          <button class="category-tab" data-category="photography">Photography</button>
+          <button class="category-tab" data-category="videos">Videos</button>
+          <button class="category-tab" data-category="p5js">p5.js</button>
+        </div>
+      </div>
 
-  <!-- About -->
-  <section class="about">
-    <div class="about-inner">
-      <h2 class="about-title">About</h2>
-      <p class="about-text">
-        Maggie Zhao is a student majoring in Design and Technology and was majored in Photography at Parsons School of Design.
-        She is based in New York and Beijing.
-      </p>
-      <p class="about-text">
-        Contact:<br>
-        <a class="about-link" href="mailto:maggiejasmer@gmail.com">maggiejasmer@gmail.com</a>
-      </p>
+      <div id="preview" class="preview-row"></div>
+    </section>
+  </div>
+
+  <div id="viewer" aria-hidden="true">
+    <div id="viewer-backdrop"></div>
+    <div id="viewer-stage">
+      <iframe id="viewer-frame" title="Viewer content"></iframe>
     </div>
-  </section>
+  </div>
 
-  <!-- Works -->
-  <section class="works">
-
-    <!-- 分类栏 -->
-    <div class="categorybar">
-      <div class="categorybar-inner">
-        <a class="category-tab is-active" data-category="interactive">Interactive</a>
-        <a class="category-tab" data-category="collage">Collage and Images</a>
-        <a class="category-tab" data-category="photographs">Photographs</a>
-        <a class="category-tab" data-category="videos">Videos</a>
-        <a class="category-tab" data-category="p5js">p5.js</a>
-      </div>
-    </div>
-
-    <div class="category-panels">
-
-      <!-- Interactive -->
-      <div class="category-panel is-active" data-panel="interactive">
-        <div class="preview-row">
-          <p class="about-text">Works coming soon.</p>
-        </div>
-      </div>
-
-      <!-- Collage and Images -->
-      <div class="category-panel" data-panel="collage">
-        <div class="preview-row">
-
-          <a class="preview-card is-2025"
-             href="collage-and-images/Androgyne.pdf"
-             data-viewer="1"
-             data-viewer-src="collage-and-images/Androgyne.pdf">
-            <div class="preview-title">Androgyne</div>
-            <iframe src="collage-and-images/Androgyne.pdf"></iframe>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- Photographs -->
-      <div class="category-panel" data-panel="photographs">
-        <div class="preview-row auto-scroll" data-speed="0.25">
-
-          <a class="preview-card is-img" href="photographs/mix.jpg" target="_blank">
-            <div class="preview-title">Mix</div>
-            <img src="photographs/mix.jpg">
-          </a>
-
-          <a class="preview-card is-img" href="photographs/mix2.jpg" target="_blank">
-            <div class="preview-title">Mix 2</div>
-            <img src="photographs/mix2.jpg">
-          </a>
-
-          <a class="preview-card is-img" href="photographs/mix3.jpg" target="_blank">
-            <div class="preview-title">Mix 3</div>
-            <img src="photographs/mix3.jpg">
-          </a>
-
-          <a class="preview-card is-img" href="photographs/tree.jpg" target="_blank">
-            <div class="preview-title">Tree</div>
-            <img src="photographs/tree.jpg">
-          </a>
-
-          <a class="preview-card is-img" href="photographs/缸.jpg" target="_blank">
-            <div class="preview-title">缸</div>
-            <img src="photographs/缸.jpg">
-          </a>
-
-        </div>
-      </div>
-
-      <!-- Videos -->
-      <div class="category-panel" data-panel="videos">
-        <div class="preview-row">
-          <p class="about-text">Works coming soon.</p>
-        </div>
-      </div>
-
-      <!-- p5.js -->
-      <div class="category-panel" data-panel="p5js">
-        <div class="preview-row">
-
-          <a class="preview-card is-2025"
-             href="p5js/Map.html"
-             data-viewer="1"
-             data-viewer-src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi">
-            <div class="preview-title">Map</div>
-            <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
-          </a>
-
-          <a class="preview-card is-2025"
-             href="p5js/FaceGenerator.html"
-             data-viewer="1"
-             data-viewer-src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN">
-            <div class="preview-title">Face Generator</div>
-            <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
-          </a>
-
-          <a class="preview-card is-2025"
-             href="p5js/IceClock.html"
-             data-viewer="1"
-             data-viewer-src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo">
-            <div class="preview-title">Ice Clock</div>
-            <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
-          </a>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</div>
-
-<!-- Viewer -->
-<div id="viewer">
-  <div id="viewer-backdrop"></div>
-  <iframe id="viewer-frame"></iframe>
-</div>
-
-<script>
-
-/* 分类切换 */
-const tabs = document.querySelectorAll(".category-tab");
-const panels = document.querySelectorAll(".category-panel");
-
-function activate(category){
-  tabs.forEach(t => t.classList.toggle("is-active", t.dataset.category === category));
-  panels.forEach(p => p.classList.toggle("is-active", p.dataset.panel === category));
-}
-
-tabs.forEach(tab => {
-  tab.addEventListener("mouseenter", () => activate(tab.dataset.category));
-  tab.addEventListener("click", () => activate(tab.dataset.category));
-});
-
-/* 自动滚动 */
-const rows = document.querySelectorAll(".auto-scroll");
-
-rows.forEach(row => {
-  let paused = false;
-
-  row.addEventListener("mouseenter", () => paused = true);
-  row.addEventListener("mouseleave", () => paused = false);
-
-  function loop(){
-    if(!paused){
-      row.scrollLeft += 0.3;
-      if(row.scrollLeft >= row.scrollWidth - row.clientWidth){
-        row.scrollLeft = 0;
-      }
-    }
-    requestAnimationFrame(loop);
-  }
-  loop();
-});
-
-/* Viewer */
-const viewer = document.getElementById("viewer");
-const frame = document.getElementById("viewer-frame");
-
-document.addEventListener("click", (e)=>{
-  const a = e.target.closest("[data-viewer]");
-  if(!a) return;
-
-  e.preventDefault();
-  frame.src = a.dataset.viewerSrc;
-  viewer.style.display = "block";
-});
-
-viewer.addEventListener("click", ()=>{
-  viewer.style.display = "none";
-  frame.src = "";
-});
-
-</script>
-
-<script src="bg.js"></script>
-
+  <script src="categories.js"></script>
+  <script src="bg.js"></script>
 </body>
 </html>
