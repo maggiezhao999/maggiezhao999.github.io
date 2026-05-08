@@ -17,17 +17,18 @@
 </head>
 
 <body>
-  <!-- p5 背景挂载点 -->
+
   <div id="bg"></div>
 
   <div class="content">
-    <!-- Hero：开屏只有名字（中下方） -->
+
+    <!-- Hero -->
     <section class="hero">
       <h1 class="hero-name">Maggie Zhao</h1>
     </section>
 
-    <!-- ✅ About：在名字和年份之间（居中） -->
-    <section class="about" aria-label="About">
+    <!-- About -->
+    <section class="about">
       <div class="about-inner">
         <h2 class="about-title">About</h2>
         <p class="about-text">
@@ -41,301 +42,155 @@
       </div>
     </section>
 
-<!-- Works：分类 + 预览 -->
-<section class="works" aria-label="Works by category">
+    <!-- Works -->
+    <section class="works">
 
-  <div class="categorybar">
-    <div class="categorybar-inner">
-      <a class="category-tab is-active" data-category="p5js" href="#p5js">p5.js</a>
-      <a class="category-tab" data-category="photography" href="#photography">Photography</a>
-      <a class="category-tab" data-category="collage" href="#collage">Collage</a>
-      <a class="category-tab" data-category="video" href="#video">Video</a>
-      <a class="category-tab" data-category="interactive" href="#interactive">Interactive</a>
-      <a class="category-tab" data-category="design" href="#design">Design</a>
-    </div>
+      <!-- 分类栏 -->
+      <div class="categorybar">
+        <div class="categorybar-inner">
+          <a class="category-tab is-active" data-category="p5js">p5.js</a>
+          <a class="category-tab" data-category="photography">Photography</a>
+          <a class="category-tab" data-category="collage">Collage</a>
+          <a class="category-tab" data-category="video">Video</a>
+          <a class="category-tab" data-category="interactive">Interactive</a>
+          <a class="category-tab" data-category="design">Design</a>
+        </div>
+      </div>
+
+      <div class="category-panels">
+
+        <!-- p5.js -->
+        <div class="category-panel is-active" data-panel="p5js">
+          <div class="preview-row">
+
+            <a class="preview-card is-2025" href="Map.html" data-viewer="1"
+               data-viewer-src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi">
+              <div class="preview-title">Map</div>
+              <iframe src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
+            </a>
+
+            <a class="preview-card is-2025" href="FaceGenerator.html" data-viewer="1"
+               data-viewer-src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN">
+              <div class="preview-title">Face Generator</div>
+              <iframe src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
+            </a>
+
+            <a class="preview-card is-2025" href="IceClock.html" data-viewer="1"
+               data-viewer-src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo">
+              <div class="preview-title">Ice Clock</div>
+              <iframe src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Photography -->
+        <div class="category-panel" data-panel="photography">
+          <div class="preview-row auto-scroll" data-speed="0.25">
+
+            <a class="preview-card is-img" href="2024/mix.jpg" target="_blank">
+              <div class="preview-title">Mix</div>
+              <img src="2024/mix.jpg">
+            </a>
+
+            <a class="preview-card is-img" href="2023/缸.jpg" target="_blank">
+              <div class="preview-title">缸</div>
+              <img src="2023/缸.jpg">
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Collage -->
+        <div class="category-panel" data-panel="collage">
+          <div class="preview-row">
+            <a class="preview-card is-2025" href="Androgyne.pdf" data-viewer="1"
+               data-viewer-src="Androgyne.pdf">
+              <div class="preview-title">Androgyne</div>
+              <iframe src="Androgyne.pdf"></iframe>
+            </a>
+          </div>
+        </div>
+
+        <!-- Empty panels -->
+        <div class="category-panel" data-panel="video">
+          <div class="preview-row"><p>Coming soon</p></div>
+        </div>
+
+        <div class="category-panel" data-panel="interactive">
+          <div class="preview-row"><p>Coming soon</p></div>
+        </div>
+
+        <div class="category-panel" data-panel="design">
+          <div class="preview-row"><p>Coming soon</p></div>
+        </div>
+
+      </div>
+    </section>
+
   </div>
 
-  <div class="category-panels">
-
-    <!-- p5.js -->
-    <div class="category-panel is-active" data-panel="p5js" role="region" aria-label="p5.js works">
-      <div class="preview-row">
-
-        <a class="preview-card is-2025"
-           href="Map.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi">
-          <div class="preview-title">Map</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"></iframe>
-        </a>
-
-        <a class="preview-card is-2025"
-           href="FaceGenerator.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN">
-          <div class="preview-title">Face Generator</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/diju60ZUN"></iframe>
-        </a>
-
-        <a class="preview-card is-2025"
-           href="IceClock.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo">
-          <div class="preview-title">Ice Clock</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"></iframe>
-        </a>
-
-        <a class="preview-card is-2025"
-           href="ExquisiteCorpse.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC">
-          <div class="preview-title">Exquisite Corpse</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"></iframe>
-        </a>
-
-        <a class="preview-card is-2025"
-           href="OpticalIllusion.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM">
-          <div class="preview-title">Optical Illusion</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"></iframe>
-        </a>
-
-        <a class="preview-card is-2025"
-           href="DataPortrait.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP">
-          <div class="preview-title">Data Portrait</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"></iframe>
-        </a>
-
-        <a class="preview-card is-2025"
-           href="HomeRide.html"
-           data-viewer="1"
-           data-viewer-src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc">
-          <div class="preview-title">Home Ride</div>
-          <iframe loading="lazy" src="https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"></iframe>
-        </a>
-
-      </div>
-    </div>
-
-    <!-- Photography -->
-    <div class="category-panel" data-panel="photography" role="region" aria-label="Photography works">
-      <div class="preview-row auto-scroll" data-speed="0.25">
-
-        <a class="preview-card is-img" href="2024/mix.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">Mix</div>
-          <img class="preview-media" src="2024/mix.jpg" alt="Mix">
-        </a>
-
-        <a class="preview-card is-img" href="2024/mix2.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">Mix 2</div>
-          <img class="preview-media" src="2024/mix2.jpg" alt="Mix 2">
-        </a>
-
-        <a class="preview-card is-img" href="2024/mix3.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">Mix 3</div>
-          <img class="preview-media" src="2024/mix3.jpg" alt="Mix 3">
-        </a>
-
-        <a class="preview-card is-img" href="2024/tree.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">Tree</div>
-          <img class="preview-media" src="2024/tree.jpg" alt="Tree">
-        </a>
-
-        <a class="preview-card is-img" href="2024/wheel.jpeg" target="_blank" rel="noopener">
-          <div class="preview-title">Wheel</div>
-          <img class="preview-media" src="2024/wheel.jpeg" alt="Wheel">
-        </a>
-
-        <a class="preview-card is-img" href="2024/desk.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">Desk</div>
-          <img class="preview-media" src="2024/desk.jpg" alt="Desk">
-        </a>
-
-        <a class="preview-card is-img" href="2024/leaves.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">Leaves</div>
-          <img class="preview-media" src="2024/leaves.jpg" alt="Leaves">
-        </a>
-
-        <a class="preview-card is-img" href="2023/缸.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">缸</div>
-          <img class="preview-media" src="2023/缸.jpg" alt="缸">
-        </a>
-
-        <a class="preview-card is-img" href="2023/冥河.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">冥河</div>
-          <img class="preview-media" src="2023/冥河.jpg" alt="冥河">
-        </a>
-
-        <a class="preview-card is-img" href="2023/并蒂莲.jpg" target="_blank" rel="noopener">
-          <div class="preview-title">并蒂莲</div>
-          <img class="preview-media" src="2023/并蒂莲.jpg" alt="并蒂莲">
-        </a>
-
-        <a class="preview-card is-img" href="2023/石溪.jpeg" target="_blank" rel="noopener">
-          <div class="preview-title">石溪</div>
-          <img class="preview-media" src="2023/石溪.jpeg" alt="石溪">
-        </a>
-
-        <a class="preview-card is-img" href="2023/trees.jpeg" target="_blank" rel="noopener">
-          <div class="preview-title">Trees</div>
-          <img class="preview-media" src="2023/trees.jpeg" alt="Trees">
-        </a>
-
-      </div>
-    </div>
-
-    <!-- Collage -->
-    <div class="category-panel" data-panel="collage" role="region" aria-label="Collage works">
-      <div class="preview-row">
-        <a class="preview-card is-2025"
-           href="Androgyne.pdf"
-           data-viewer="1"
-           data-viewer-src="Androgyne.pdf">
-          <div class="preview-title">Androgyne</div>
-          <iframe loading="lazy" src="Androgyne.pdf"></iframe>
-        </a>
-      </div>
-    </div>
-
-    <!-- Video -->
-    <div class="category-panel" data-panel="video" role="region" aria-label="Video works">
-      <div class="preview-row">
-        <p class="about-text">Works coming soon.</p>
-      </div>
-    </div>
-
-    <!-- Interactive -->
-    <div class="category-panel" data-panel="interactive" role="region" aria-label="Interactive works">
-      <div class="preview-row">
-        <p class="about-text">Works coming soon.</p>
-      </div>
-    </div>
-
-    <!-- Design -->
-    <div class="category-panel" data-panel="design" role="region" aria-label="Design works">
-      <div class="preview-row">
-        <p class="about-text">Works coming soon.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-  <!-- 全屏 viewer（无 UI） -->
-  <div id="viewer" aria-hidden="true">
+  <!-- Viewer -->
+  <div id="viewer">
     <div id="viewer-backdrop"></div>
-    <div id="viewer-stage" role="dialog" aria-modal="true" aria-label="Fullscreen viewer">
-      <iframe id="viewer-frame" title="Viewer content"></iframe>
-    </div>
+    <iframe id="viewer-frame"></iframe>
   </div>
 
-  <!-- 年份切换 + 自动流动 + viewer -->
-  <script>
-// Category switching
+<script>
+/* 分类切换 */
 const tabs = document.querySelectorAll(".category-tab");
 const panels = document.querySelectorAll(".category-panel");
 
-function activate(category) {
-  tabs.forEach(t =>
-    t.classList.toggle("is-active", t.dataset.category === category)
-  );
-
-  panels.forEach(p =>
-    p.classList.toggle("is-active", p.dataset.panel === category)
-  );
+function activate(category){
+  tabs.forEach(t => t.classList.toggle("is-active", t.dataset.category === category));
+  panels.forEach(p => p.classList.toggle("is-active", p.dataset.panel === category));
 }
 
 tabs.forEach(tab => {
-  tab.addEventListener("mouseenter", () =>
-    activate(tab.dataset.category)
-  );
-
-  tab.addEventListener("focus", () =>
-    activate(tab.dataset.category)
-  );
-
-  tab.addEventListener("click", (e) => {
-    e.preventDefault();
-    activate(tab.dataset.category);
-  });
+  tab.addEventListener("mouseenter", () => activate(tab.dataset.category));
+  tab.addEventListener("click", () => activate(tab.dataset.category));
 });
-    // Auto scroll (2023/2024)
-    const autoRows = document.querySelectorAll(".preview-row.auto-scroll");
-    const autoState = new Map();
 
-    autoRows.forEach(row => {
-      autoState.set(row, { paused: false, last: performance.now() });
+/* 自动滚动 */
+const rows = document.querySelectorAll(".auto-scroll");
+rows.forEach(row => {
+  let paused = false;
 
-      row.addEventListener("mouseenter", () => autoState.get(row).paused = true);
-      row.addEventListener("mouseleave", () => {
-        const st = autoState.get(row);
-        st.paused = false;
-        st.last = performance.now();
-      });
-      row.addEventListener("touchstart", () => autoState.get(row).paused = true, { passive: true });
-    });
+  row.addEventListener("mouseenter", () => paused = true);
+  row.addEventListener("mouseleave", () => paused = false);
 
-    function tickAutoScroll(now) {
-      autoRows.forEach(row => {
-        const panel = row.closest(".year-panel");
-        if (!panel || !panel.classList.contains("is-active")) return;
-
-        const st = autoState.get(row);
-        if (!st || st.paused) return;
-
-        const speed = parseFloat(row.dataset.speed || "0.25");
-        const dt = Math.min(40, now - st.last);
-        st.last = now;
-
-        row.scrollLeft += speed * dt;
-
-        const max = row.scrollWidth - row.clientWidth;
-        if (max > 0 && row.scrollLeft >= max - 2) row.scrollLeft = 0;
-      });
-
-      requestAnimationFrame(tickAutoScroll);
+  function loop(){
+    if(!paused){
+      row.scrollLeft += 0.3;
+      if(row.scrollLeft >= row.scrollWidth - row.clientWidth){
+        row.scrollLeft = 0;
+      }
     }
-    requestAnimationFrame(tickAutoScroll);
+    requestAnimationFrame(loop);
+  }
+  loop();
+});
 
-    // Viewer (for 2025)
-    const viewer = document.getElementById("viewer");
-    const viewerBackdrop = document.getElementById("viewer-backdrop");
-    const viewerFrame = document.getElementById("viewer-frame");
+/* Viewer */
+const viewer = document.getElementById("viewer");
+const frame = document.getElementById("viewer-frame");
 
-    function openViewer(src) {
-      viewerFrame.src = src;
-      viewer.classList.add("is-open");
-      viewer.setAttribute("aria-hidden", "false");
-      document.body.classList.add("no-scroll");
-    }
+document.addEventListener("click", (e)=>{
+  const a = e.target.closest("[data-viewer]");
+  if(!a) return;
 
-    function closeViewer() {
-      viewer.classList.remove("is-open");
-      viewer.setAttribute("aria-hidden", "true");
-      viewerFrame.src = "";
-      document.body.classList.remove("no-scroll");
-    }
+  e.preventDefault();
+  frame.src = a.dataset.viewerSrc;
+  viewer.style.display = "block";
+});
 
-    document.addEventListener("click", (e) => {
-      const a = e.target.closest('a[data-viewer="1"]');
-      if (!a) return;
+viewer.addEventListener("click", ()=>{
+  viewer.style.display = "none";
+  frame.src = "";
+});
+</script>
 
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault();
+<script src="bg.js"></script>
 
-      const src = a.dataset.viewerSrc;
-      if (src) openViewer(src);
-    });
-
-    viewerBackdrop.addEventListener("click", closeViewer);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && viewer.classList.contains("is-open")) closeViewer();
-    });
-  </script>
-
-  <!-- p5 背景脚本 -->
-  <script src="bg.js"></script>
 </body>
 </html>
