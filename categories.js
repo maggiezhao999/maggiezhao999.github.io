@@ -1,7 +1,7 @@
-// years.js — Year hover to preview projects (2025 first)
+// categories.js — Category hover to preview projects
 
-const PROJECTS_BY_YEAR = {
-  "2025": [
+const PROJECTS_BY_CATEGORY = {
+  "p5.js": [
     {
       title: "Map",
       page: "Map.html",
@@ -38,27 +38,36 @@ const PROJECTS_BY_YEAR = {
       embed: "https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"
     }
   ],
-  "2024": [],
-  "2023": []
+
+  "Collage": [
+    {
+      title: "Androgyne",
+      page: "Androgyne.pdf",
+      embed: "" // pdf可以先不嵌入
+    }
+  ],
+
+  "Photography": [],
+
+  "Video": []
 };
 
-function renderYear(year) {
-  const yearTitle = document.getElementById("yearTitle");
-  const yearHint = document.getElementById("yearHint");
+function renderCategory(category) {
+  const title = document.getElementById("yearTitle"); // 可以不改 id
+  const hint = document.getElementById("yearHint");
   const preview = document.getElementById("preview");
 
-  yearTitle.textContent = year;
+  title.textContent = category;
 
-  // clear old previews
   preview.innerHTML = "";
 
-  const items = PROJECTS_BY_YEAR[year] || [];
+  const items = PROJECTS_BY_CATEGORY[category] || [];
   if (items.length === 0) {
-    yearHint.textContent = "Works coming soon.";
+    hint.textContent = "Works coming soon.";
     return;
   }
 
-  yearHint.textContent = "Click a title to open the project page.";
+  hint.textContent = "Click a title to open the project page.";
 
   for (const p of items) {
     const card = document.createElement("section");
@@ -75,37 +84,40 @@ function renderYear(year) {
 
     header.appendChild(h2);
 
-    const iframe = document.createElement("iframe");
-    iframe.src = p.embed;
-    iframe.loading = "lazy";
-
-    card.appendChild(header);
-    card.appendChild(iframe);
+    if (p.embed) {
+      const iframe = document.createElement("iframe");
+      iframe.src = p.embed;
+      iframe.loading = "lazy";
+      card.appendChild(header);
+      card.appendChild(iframe);
+    } else {
+      card.appendChild(header);
+    }
 
     preview.appendChild(card);
   }
 }
 
-function setupYearHover() {
-  const yearButtons = document.querySelectorAll(".year-btn");
+function setupCategoryHover() {
+  const buttons = document.querySelectorAll(".category-btn");
 
-  // default selection: 2025
-  renderYear("2025");
-  setActiveYear("2025");
+  // 默认显示 p5.js
+  renderCategory("p5.js");
+  setActiveCategory("p5.js");
 
-  yearButtons.forEach(btn => {
+  buttons.forEach(btn => {
     btn.addEventListener("mouseenter", () => {
-      const year = btn.dataset.year;
-      renderYear(year);
-      setActiveYear(year);
+      const category = btn.dataset.category;
+      renderCategory(category);
+      setActiveCategory(category);
     });
   });
 }
 
-function setActiveYear(year) {
-  document.querySelectorAll(".year-btn").forEach(b => {
-    b.classList.toggle("active", b.dataset.year === year);
+function setActiveCategory(category) {
+  document.querySelectorAll(".category-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.category === category);
   });
 }
 
-document.addEventListener("DOMContentLoaded", setupYearHover);
+document.addEventListener("DOMContentLoaded", setupCategoryHover);
