@@ -1,123 +1,288 @@
-// categories.js — Category hover to preview projects
-
-const PROJECTS_BY_CATEGORY = {
-  "p5.js": [
+const PROJECTS = {
+  interactive: [
     {
-      title: "Map",
-      page: "Map.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/-DKRWwtdi"
+      title: "Experimental Camera",
+      page: "interactive/ExperimentalCamera.html",
+      preview: "interactive/ExperimentalCamera.html",
+      type: "iframe"
     },
     {
-      title: "Face Generator",
-      page: "FaceGenerator.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/diju60ZUN"
+      title: "Digital Divination",
+      page: "interactive/Digital Divination.html",
+      preview: "interactive/Digital Divination.html",
+      type: "iframe"
     },
     {
-      title: "Ice Clock",
-      page: "IceClock.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/hJu5v55Oo"
-    },
-    {
-      title: "Exquisite Corpse",
-      page: "ExquisiteCorpse.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/Lhl-onaEC"
-    },
-    {
-      title: "Optical Illusion",
-      page: "OpticalIllusion.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/TWVB9kagM"
+      title: "Joyride",
+      page: "interactive/Joyride.html",
+      preview: "interactive/Joyride.html",
+      type: "iframe"
     },
     {
       title: "Data Portrait",
-      page: "DataPortrait.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/fm0OX3GlP"
+      page: "interactive/DataPortrait.html",
+      preview: "interactive/DataPortrait.html",
+      type: "iframe"
     },
     {
-      title: "Home Ride",
-      page: "HomeRide.html",
-      embed: "https://editor.p5js.org/maggiejasmer/full/jxFdLWFpc"
+      title: "Face Generator",
+      page: "interactive/FaceGenerator.html",
+      preview: "interactive/FaceGenerator.html",
+      type: "iframe"
+    },
+    {
+      title: "Ice Clock",
+      page: "interactive/IceClock.html",
+      preview: "interactive/IceClock.html",
+      type: "iframe"
+    },
+    {
+      title: "Optical Illusion",
+      page: "interactive/OpticalIllusion.html",
+      preview: "interactive/OpticalIllusion.html",
+      type: "iframe"
     }
   ],
 
-  "Collage": [
+  collage: [
     {
       title: "Androgyne",
-      page: "Androgyne.pdf",
-      embed: "" // pdf可以先不嵌入
+      page: "Collage and images/Androgyne.pdf",
+      preview: "Collage and images/Androgyne.pdf",
+      type: "iframe"
+    },
+    {
+      title: "Desk",
+      page: "Collage and images/desk.jpg",
+      preview: "Collage and images/desk.jpg",
+      type: "image"
+    },
+    {
+      title: "Leaves",
+      page: "Collage and images/leaves.jpg",
+      preview: "Collage and images/leaves.jpg",
+      type: "image"
+    },
+    {
+      title: "Mix 3",
+      page: "Collage and images/mix3.jpg",
+      preview: "Collage and images/mix3.jpg",
+      type: "image"
+    },
+    {
+      title: "Mother and Me",
+      page: "Collage and images/motherandme.jpg",
+      preview: "Collage and images/motherandme.jpg",
+      type: "image"
+    },
+    {
+      title: "Mother and Me 2",
+      page: "Collage and images/motherandme2.jpg",
+      preview: "Collage and images/motherandme2.jpg",
+      type: "image"
+    },
+    {
+      title: "Tree",
+      page: "Collage and images/tree.jpg",
+      preview: "Collage and images/tree.jpg",
+      type: "image"
     }
   ],
 
-  "Photography": [],
+  photography: [
+    {
+      title: "Afterglow",
+      page: "Photography/afterglow.jpeg",
+      preview: "Photography/afterglow.jpeg",
+      type: "image"
+    },
+    {
+      title: "Snownight",
+      page: "Photography/snownight.jpeg",
+      preview: "Photography/snownight.jpeg",
+      type: "image"
+    },
+    {
+      title: "Trees",
+      page: "Photography/trees.jpeg",
+      preview: "Photography/trees.jpeg",
+      type: "image"
+    },
+    {
+      title: "Wheel",
+      page: "Photography/wheel.jpeg",
+      preview: "Photography/wheel.jpeg",
+      type: "image"
+    },
+    {
+      title: "Wheels",
+      page: "Photography/wheels.jpeg",
+      preview: "Photography/wheels.jpeg",
+      type: "image"
+    },
+    {
+      title: "冥河",
+      page: "Photography/冥河.jpg",
+      preview: "Photography/冥河.jpg",
+      type: "image"
+    },
+    {
+      title: "并蒂莲",
+      page: "Photography/并蒂莲.jpg",
+      preview: "Photography/并蒂莲.jpg",
+      type: "image"
+    },
+    {
+      title: "石溪",
+      page: "Photography/石溪.jpeg",
+      preview: "Photography/石溪.jpeg",
+      type: "image"
+    },
+    {
+      title: "缸",
+      page: "Photography/缸.jpg",
+      preview: "Photography/缸.jpg",
+      type: "image"
+    }
+  ],
 
-  "Video": []
+  videos: [],
+
+  p5js: [
+    {
+      title: "Experimental Camera",
+      page: "interactive/ExperimentalCamera.html",
+      preview: "interactive/ExperimentalCamera.html",
+      type: "iframe"
+    },
+    {
+      title: "Digital Divination",
+      page: "interactive/Digital Divination.html",
+      preview: "interactive/Digital Divination.html",
+      type: "iframe"
+    },
+    {
+      title: "Joyride",
+      page: "interactive/Joyride.html",
+      preview: "interactive/Joyride.html",
+      type: "iframe"
+    },
+    {
+      title: "Data Portrait",
+      page: "interactive/DataPortrait.html",
+      preview: "interactive/DataPortrait.html",
+      type: "iframe"
+    },
+    {
+      title: "Face Generator",
+      page: "interactive/FaceGenerator.html",
+      preview: "interactive/FaceGenerator.html",
+      type: "iframe"
+    },
+    {
+      title: "Ice Clock",
+      page: "interactive/IceClock.html",
+      preview: "interactive/IceClock.html",
+      type: "iframe"
+    },
+    {
+      title: "Optical Illusion",
+      page: "interactive/OpticalIllusion.html",
+      preview: "interactive/OpticalIllusion.html",
+      type: "iframe"
+    }
+  ]
 };
 
+const tabs = document.querySelectorAll(".category-tab");
+const preview = document.getElementById("preview");
+
 function renderCategory(category) {
-  const title = document.getElementById("yearTitle"); // 可以不改 id
-  const hint = document.getElementById("yearHint");
-  const preview = document.getElementById("preview");
-
-  title.textContent = category;
-
   preview.innerHTML = "";
 
-  const items = PROJECTS_BY_CATEGORY[category] || [];
+  const items = PROJECTS[category] || [];
+
   if (items.length === 0) {
-    hint.textContent = "Works coming soon.";
+    preview.innerHTML = `<p class="empty-message">Works coming soon.</p>`;
     return;
   }
 
-  hint.textContent = "Click a title to open the project page.";
+  items.forEach(project => {
+    const card = document.createElement("a");
+    card.className = project.type === "image"
+      ? "preview-card is-img"
+      : "preview-card is-interactive";
 
-  for (const p of items) {
-    const card = document.createElement("section");
-    card.className = "project-preview";
+    card.href = project.page;
+    card.dataset.viewer = "1";
+    card.dataset.viewerSrc = project.preview;
 
-    const header = document.createElement("div");
-    header.className = "project-header";
+    const title = document.createElement("div");
+    title.className = "preview-title";
+    title.textContent = project.title;
 
-    const h2 = document.createElement("h2");
-    const a = document.createElement("a");
-    a.href = p.page;
-    a.textContent = p.title;
-    h2.appendChild(a);
+    card.appendChild(title);
 
-    header.appendChild(h2);
-
-    if (p.embed) {
-      const iframe = document.createElement("iframe");
-      iframe.src = p.embed;
-      iframe.loading = "lazy";
-      card.appendChild(header);
-      card.appendChild(iframe);
+    if (project.type === "image") {
+      const img = document.createElement("img");
+      img.className = "preview-media";
+      img.src = project.preview;
+      img.alt = project.title;
+      card.appendChild(img);
     } else {
-      card.appendChild(header);
+      const iframe = document.createElement("iframe");
+      iframe.src = project.preview;
+      iframe.loading = "lazy";
+      card.appendChild(iframe);
     }
 
     preview.appendChild(card);
-  }
-}
-
-function setupCategoryHover() {
-  const buttons = document.querySelectorAll(".category-btn");
-
-  // 默认显示 p5.js
-  renderCategory("p5.js");
-  setActiveCategory("p5.js");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("mouseenter", () => {
-      const category = btn.dataset.category;
-      renderCategory(category);
-      setActiveCategory(category);
-    });
   });
 }
 
-function setActiveCategory(category) {
-  document.querySelectorAll(".category-btn").forEach(b => {
-    b.classList.toggle("active", b.dataset.category === category);
+function activate(category) {
+  tabs.forEach(tab => {
+    tab.classList.toggle("is-active", tab.dataset.category === category);
   });
+
+  renderCategory(category);
 }
 
-document.addEventListener("DOMContentLoaded", setupCategoryHover);
+tabs.forEach(tab => {
+  tab.addEventListener("mouseenter", () => activate(tab.dataset.category));
+  tab.addEventListener("click", () => activate(tab.dataset.category));
+});
+
+renderCategory("interactive");
+
+const viewer = document.getElementById("viewer");
+const viewerBackdrop = document.getElementById("viewer-backdrop");
+const viewerFrame = document.getElementById("viewer-frame");
+
+function openViewer(src) {
+  viewerFrame.src = src;
+  viewer.classList.add("is-open");
+  viewer.setAttribute("aria-hidden", "false");
+  document.body.classList.add("no-scroll");
+}
+
+function closeViewer() {
+  viewer.classList.remove("is-open");
+  viewer.setAttribute("aria-hidden", "true");
+  viewerFrame.src = "";
+  document.body.classList.remove("no-scroll");
+}
+
+document.addEventListener("click", e => {
+  const card = e.target.closest("[data-viewer='1']");
+  if (!card) return;
+
+  e.preventDefault();
+  openViewer(card.dataset.viewerSrc);
+});
+
+viewerBackdrop.addEventListener("click", closeViewer);
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeViewer();
+});
